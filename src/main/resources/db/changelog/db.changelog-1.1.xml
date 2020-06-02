@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="Michał Szubert" id="1.0">
+        <insert tableName="PERSON">
+            <column name="PUBLIC_ID" value="e9cea12b-5fe9-4326-809c-ce743e809e68"/>
+            <column name="NAME" value="Michał"/>
+        </insert>
+        <insert tableName="TICKET">
+            <column name="PUBLIC_ID" value="3a1143c5-7de4-4ef4-8f1f-e59046183f49"/>
+            <column name="PERSON_PUBLIC_ID" value="e9cea12b-5fe9-4326-809c-ce743e809e68"/>
+            <column name="PRICE" value="4"/>
+            <column name="TIMESTAMP" value="2020-06-02 09:00"/>
+            <column name="TYPE" value="CINEMA"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Michał Szubert" id="1.1">
+        <insert tableName="PERSON">
+            <column name="PUBLIC_ID" value="4bfdd7b2-06ee-4297-969b-70dbea6f3f41"/>
+            <column name="NAME" value="Mateusz"/>
+        </insert>
+        <insert tableName="TICKET">
+            <column name="PUBLIC_ID" value="160c4206-233a-4331-ad33-a0dc22cd89a2"/>
+            <column name="PERSON_PUBLIC_ID" value="4bfdd7b2-06ee-4297-969b-70dbea6f3f41"/>
+            <column name="PRICE" value="6"/>
+            <column name="TIMESTAMP" value="2020-06-02 09:00"/>
+            <column name="TYPE" value="OPERA"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog> 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="Michał Szubert" id="1.0">
+        <createTable tableName="PERSON">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="PUBLIC_ID" type="VARCHAR(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+        </createTable>
+        <createTable tableName="TICKET">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="PUBLIC_ID" type="VARCHAR(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="PERSON_PUBLIC_ID" type="VARCHAR(36)"/>
+            <column name="PRICE" type="INTEGER"/>
+            <column name="TIMESTAMP" type="DATE"/>
+            <column name="TYPE" type="VARCHAR(10)"/>
+        </createTable>
+        <addForeignKeyConstraint referencedColumnNames="PUBLIC_ID" referencedTableName="PERSON"
+                                 baseTableName="TICKET" baseColumnNames="PERSON_PUBLIC_ID" constraintName="FK_TICKET_PERSON"/>
+    </changeSet>
+</databaseChangeLog> 
