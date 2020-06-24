@@ -20,6 +20,7 @@ class TicketEntity(
     var price :Int,
 
     @Column(name = "TIMESTAMP")
+    @Temporal(TemporalType.DATE)
     var timestamp :Date,
 
     @Enumerated(EnumType.STRING)

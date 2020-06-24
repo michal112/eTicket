@@ -7,11 +7,10 @@ import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
 @Path("/person")
-class PersonResource(
+class PersonResource {
 
     @Inject
-    val personService :PersonService
-) {
+    lateinit var personService :PersonService
 
     @GET
     @Path("/{publicId}")
