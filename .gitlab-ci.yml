@@ -1,6 +1,7 @@
 stages:
   - test
-  
+  - deploy
+
 test_job:
   stage: test
   script:
@@ -9,4 +10,8 @@ test_job:
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
+
+deploy_job:
+  stage: deploy
+  script:
+    - ./mvnw package -Pnative -Dquarkus.native.container-build=true
